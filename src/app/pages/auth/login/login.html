@@ -1,15 +1,18 @@
 <p-card header="Login">
   <div class="p-fluid">
+
+    <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+
     <div class="p-field">
       <label>Email</label>
-      <input pInputText type="email" />
+      <input pInputText [(ngModel)]="email" type="email" />
     </div>
 
     <div class="p-field">
       <label>Password</label>
-      <input pPassword />
+      <input pPassword [(ngModel)]="password" />
     </div>
 
-    <button pButton label="Ingresar" class="p-mt-3"></button>
+    <button pButton label="Ingresar" class="p-mt-3" (click)="login()"></button>
   </div>
 </p-card>

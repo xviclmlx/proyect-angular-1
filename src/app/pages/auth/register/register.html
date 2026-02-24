@@ -1,20 +1,52 @@
-<p-card header="Crear cuenta">
+<p-card header="Registro">
   <div class="p-fluid">
+
+    <p-message
+      *ngFor="let error of errores"
+      severity="error"
+      [text]="error">
+    </p-message>
+
     <div class="p-field">
-      <label>Nombre</label>
-      <input pInputText />
+      <label>Usuario</label>
+      <input pInputText [(ngModel)]="usuario" />
     </div>
 
     <div class="p-field">
       <label>Email</label>
-      <input pInputText type="email" />
+      <input pInputText [(ngModel)]="email" type="email" />
     </div>
 
     <div class="p-field">
-      <label>Password</label>
-      <input pPassword />
+      <label>Nombre completo</label>
+      <input pInputText [(ngModel)]="nombreCompleto" />
     </div>
 
-    <button pButton label="Registrarme"></button>
+    <div class="p-field">
+      <label>Dirección</label>
+      <input pInputText [(ngModel)]="direccion" />
+    </div>
+
+    <div class="p-field">
+      <label>Edad</label>
+      <input pInputText [(ngModel)]="edad" type="number" />
+    </div>
+
+    <div class="p-field">
+      <label>Teléfono</label>
+      <input pInputText [(ngModel)]="telefono" maxlength="10" />
+    </div>
+
+    <div class="p-field">
+      <label>Contraseña</label>
+      <input pPassword [(ngModel)]="password" />
+    </div>
+
+    <div class="p-field">
+      <label>Confirmar contraseña</label>
+      <input pPassword [(ngModel)]="confirmPassword" />
+    </div>
+
+    <button pButton label="Registrar" class="p-mt-3" (click)="validar()"></button>
   </div>
 </p-card>
