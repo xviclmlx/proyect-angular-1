@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true, // 👈 asegúrate de que esté marcado como standalone
+  imports: [RouterOutlet, ButtonModule], // 👈 aquí se importa el ButtonModule
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
