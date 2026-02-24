@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  background: #f5f5f5;
+}
+
+p-card {
+  width: 350px;
+}
