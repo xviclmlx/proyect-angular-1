@@ -1,0 +1,112 @@
+/* Contenedor centrado total */
+.cyber-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background: radial-gradient(circle at top, #0f0f1a, #050510);
+}
+
+/* Card estilo cyberpunk */
+.cyber-card {
+  width: 420px;
+  background: #0d0d1f !important;
+  border: 1px solid #00f7ff !important;
+  box-shadow: 
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff44,
+    0 0 40px #8a2be244;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+/* Título del card */
+::ng-deep .cyber-card .p-card-title {
+  color: #00f7ff;
+  text-shadow: 0 0 8px #00f7ff;
+  font-weight: 600;
+}
+
+/* Campos */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.field label {
+  margin-bottom: 0.4rem;
+  color: #8a2be2;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+::ng-deep .p-inputtext {
+  background: #111122 !important;
+  border: 1px solid #00f7ff !important;
+  color: white !important;
+  border-radius: 6px;
+}
+
+::ng-deep .p-inputtext:focus {
+  box-shadow: 0 0 10px #00f7ff !important;
+  border-color: #8a2be2 !important;
+}
+
+/* Botón */
+.cyber-button {
+  background: linear-gradient(90deg, #00f7ff, #8a2be2) !important;
+  border: none !important;
+  color: black !important;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 15px #00f7ff, 0 0 25px #8a2be2;
+  transform: scale(1.03);
+}
+
+/* Footer del modal */
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Botones RUD dentro del modal */
+.rud-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+/* Footer del modal */
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Botones RUD dentro del modal */
+.rud-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}

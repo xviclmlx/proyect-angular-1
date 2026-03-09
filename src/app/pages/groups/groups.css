@@ -1,0 +1,56 @@
+/* groups.css */
+.groups-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.block {
+  text-align: center;
+}
+
+.number {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.custom-card {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+p-table {
+  margin-top: 30px;
+}

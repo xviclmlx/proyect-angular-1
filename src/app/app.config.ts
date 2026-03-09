@@ -1,9 +1,8 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 
-// 👇 Importaciones de PrimeNG y el tema Aura
+// PrimeNG
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 

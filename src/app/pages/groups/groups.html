@@ -1,0 +1,59 @@
+<!-- Botón para abrir modal (solo admin) -->
+<button *ifHasPermission="['groups:add']" pButton type="button" label="Agregar Grupo" icon="pi pi-plus" (click)="showDialog = true"></button>
+
+<!-- Modal para agregar grupo con todos los campos -->
+<p-dialog header="Nuevo Grupo" [(visible)]="showDialog" [modal]="true" [style]="{width: '500px'}">
+  <div class="p-fluid">
+    <div class="p-field"><label>Nombre</label><input pInputText [(ngModel)]="nuevoNombre" /></div>
+    <div class="p-field"><label>Autor</label><input pInputText [(ngModel)]="nuevoAutor" /></div>
+    <div class="p-field"><label>Nivel</label><input pInputText [(ngModel)]="nuevoNivel" /></div>
+    <div class="p-field"><label>Integrantes</label><input type="number" pInputText [(ngModel)]="nuevoIntegrantes" /></div>
+    <div class="p-field"><label>Tickets</label><input type="number" pInputText [(ngModel)]="nuevoTickets" /></div>
+    <div class="p-field"><label>Descripción</label><input pInputText [(ngModel)]="nuevoDescripcion" /></div>
+    <button pButton label="Guardar" icon="pi pi-check" (click)="addGroup()"></button>
+  </div>
+</p-dialog>
+
+<!-- Modal para editar grupo -->
+<p-dialog header="Editar Grupo" [(visible)]="editDialog" [modal]="true" [style]="{width: '500px'}">
+  <div class="p-fluid" *ngIf="grupoEditando">
+    <div class="p-field"><label>Nombre</label><input pInputText [(ngModel)]="grupoEditando.nombre" /></div>
+    <div class="p-field"><label>Autor</label><input pInputText [(ngModel)]="grupoEditando.autor" /></div>
+    <div class="p-field"><label>Nivel</label><input pInputText [(ngModel)]="grupoEditando.nivel" /></div>
+    <div class="p-field"><label>Integrantes</label><input type="number" pInputText [(ngModel)]="grupoEditando.integrantes" /></div>
+    <div class="p-field"><label>Tickets</label><input type="number" pInputText [(ngModel)]="grupoEditando.tickets" /></div>
+    <div class="p-field"><label>Descripción</label><input pInputText [(ngModel)]="grupoEditando.descripcion" /></div>
+    <button pButton label="Guardar" icon="pi pi-check" (click)="guardarEdicion()"></button>
+  </div>
+</p-dialog>
+
+<!-- Tabla -->
+<p-table [value]="groups()" styleClass="p-datatable-striped" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Autor</th>
+      <th>Nivel</th>
+      <th>Integrantes</th>
+      <th>Tickets</th>
+      <th>Descripción</th>
+      <th *ifHasPermission="['groups:edit','groups:delete']">Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-group>
+    <tr>
+      <td>{{ group.nombre }}</td>
+      <td>{{ group.autor }}</td>
+      <td>{{ group.nivel }}</td>
+      <td>{{ group.integrantes }}</td>
+      <td>{{ group.tickets }}</td>
+      <td>{{ group.descripcion }}</td>
+      <td *ifHasPermission="['groups:edit','groups:delete']">
+        <!-- 👉 botón editar -->
+        <button pButton icon="pi pi-pencil" class="p-button-warning" *ifHasPermission="['groups:edit']" (click)="editGroup(group)"></button>
+        <!-- 👉 botón borrar -->
+        <button pButton icon="pi pi-trash" class="p-button-danger" *ifHasPermission="['groups:delete']" (click)="deleteGroup(group)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

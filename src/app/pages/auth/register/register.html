@@ -39,12 +39,12 @@
 
     <div class="p-field">
       <label>Contraseña</label>
-      <input pPassword [(ngModel)]="password" />
+      <p-password [(ngModel)]="password" [feedback]="false" [toggleMask]="true"></p-password>
     </div>
 
     <div class="p-field">
       <label>Confirmar contraseña</label>
-      <input pPassword [(ngModel)]="confirmPassword" />
+      <p-password [(ngModel)]="confirmPassword" [feedback]="false" [toggleMask]="true"></p-password>
     </div>
 
     <button pButton label="Registrar" class="p-mt-3" (click)="validar()"></button>

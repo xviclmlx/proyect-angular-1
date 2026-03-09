@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--surface-ground);
+}
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--surface-card);
+  padding: 1rem;
+  border-right: 1px solid var(--surface-border);
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+app-root, app-home {
+  height: 100%;
+  display: block;
+}
+main-layout {
+  height: 100%;
+  display: block;
+}

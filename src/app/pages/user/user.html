@@ -1,0 +1,91 @@
+<div class="cyber-container">
+  <p-card header="👤 Datos del Usuario" class="cyber-card">
+
+    <div class="field">
+      <label>Usuario</label>
+      <input type="text" pInputText [(ngModel)]="usuario" placeholder="Usuario" />
+    </div>
+
+    <div class="field">
+      <label>Nombre</label>
+      <input type="text" pInputText [(ngModel)]="nombre" placeholder="Nombre completo" />
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" pInputText [(ngModel)]="email" placeholder="Correo electrónico" />
+    </div>
+
+    <div class="field">
+      <label>Dirección</label>
+      <input type="text" pInputText [(ngModel)]="direccion" placeholder="Dirección" />
+    </div>
+
+    <div class="field">
+      <label>Edad</label>
+      <input type="number" pInputText [(ngModel)]="edad" placeholder="Edad" />
+    </div>
+
+    <div class="field">
+      <label>Teléfono</label>
+      <input type="text" pInputText [(ngModel)]="telefono" placeholder="Teléfono" />
+    </div>
+
+    <p-divider></p-divider>
+
+    <!-- Botón para abrir modal RUD -->
+    <button pButton type="button" label="Acciones RUD" icon="pi pi-cog" class="cyber-button" (click)="showDialog = true"></button>
+
+  </p-card>
+</div>
+
+<!-- Modal RUD -->
+<p-dialog header="Acciones del Usuario" [(visible)]="showDialog" [modal]="true" [style]="{width: '400px'}">
+  <div class="rud-actions">
+    <button *ifHasPermission="['profile:view']" pButton type="button" label="Leer" icon="pi pi-eye" class="p-button-info" (click)="leerUsuario()"></button>
+    <button *ifHasPermission="['profile:edit']" pButton type="button" label="Actualizar" icon="pi pi-pencil" class="p-button-warning" (click)="showUpdateDialog = true"></button>
+    <button *ifHasPermission="['profile:delete']" pButton type="button" label="Eliminar" icon="pi pi-trash" class="p-button-danger" (click)="eliminarUsuario()"></button>
+  </div>
+
+  <div class="dialog-footer" p-footer>
+    <button pButton type="button" label="Cerrar" icon="pi pi-times" class="p-button-secondary" (click)="showDialog = false"></button>
+  </div>
+</p-dialog>
+
+<!-- Modal de Actualización -->
+<p-dialog header="Actualizar Usuario" [(visible)]="showUpdateDialog" [modal]="true" [style]="{width: '500px'}">
+  <div class="form-grid">
+    <div class="form-field">
+      <label>Usuario</label>
+      <input pInputText type="text" [(ngModel)]="usuario" />
+    </div>
+    <div class="form-field">
+      <label>Nombre</label>
+      <input pInputText type="text" [(ngModel)]="nombre" />
+    </div>
+    <div class="form-field">
+      <label>Email</label>
+      <input pInputText type="email" [(ngModel)]="email" />
+    </div>
+    <div class="form-field">
+      <label>Dirección</label>
+      <input pInputText type="text" [(ngModel)]="direccion" />
+    </div>
+    <div class="form-field">
+      <label>Edad</label>
+      <input pInputText type="number" [(ngModel)]="edad" />
+    </div>
+    <div class="form-field">
+      <label>Teléfono</label>
+      <input pInputText type="text" [(ngModel)]="telefono" />
+    </div>
+  </div>
+
+  <div class="dialog-footer" p-footer>
+    <button pButton type="button" label="Aceptar" icon="pi pi-check" class="p-button-success" (click)="guardarCambios(); showUpdateDialog = false"></button>
+    <button pButton type="button" label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="showUpdateDialog = false"></button>
+  </div>
+</p-dialog>
+
+<!-- ConfirmDialog global -->
+<p-confirmDialog></p-confirmDialog>
