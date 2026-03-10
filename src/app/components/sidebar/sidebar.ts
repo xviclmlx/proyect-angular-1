@@ -62,6 +62,6 @@ export class SidebarComponent {
 
   logout() {
     this.permsSvc.clearPermissions();
-    window.location.href = '/login';
+    window.location.href = '/login';  
   }
 }

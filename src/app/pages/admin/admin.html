@@ -1,0 +1,48 @@
+<div class="auth-container">
+  <p-card header="Administradores" class="auth-card">
+    <div class="p-fluid">
+
+      <button *ifHasPermission="['users:addAdmin']"
+              pButton type="button"
+              label="Agregar Administrador"
+              icon="pi pi-plus"
+              (click)="showDialog = true"></button>
+
+      <p-dialog header="Nuevo Administrador"
+                [(visible)]="showDialog"
+                [modal]="true"
+                [style]="{width: '400px'}">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="usuario">Usuario</label>
+            <input id="usuario" pInputText [(ngModel)]="nuevoUsuario" placeholder="Nombre de usuario" />
+          </div>
+          <div class="p-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" pInputText [(ngModel)]="nuevoEmail" type="email" placeholder="ejemplo@correo.com" />
+          </div>
+          <button pButton label="Guardar" icon="pi pi-check" (click)="addAdmin()"></button>
+        </div>
+      </p-dialog>
+
+      <p-table [value]="adminSvc.getAdmins()" styleClass="p-datatable-striped" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th *ifHasPermission="['users:deleteAdmin']">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-admin>
+          <tr>
+            <td>{{ admin.usuario }}</td>
+            <td>{{ admin.email }}</td>
+            <td *ifHasPermission="['users:deleteAdmin']">
+              <button pButton icon="pi pi-trash" class="p-button-danger" (click)="deleteAdmin(admin)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-card>
+</div>
